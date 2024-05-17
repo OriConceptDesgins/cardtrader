@@ -22,8 +22,9 @@ The idea is a hypothetical platform to support active content creators and get r
 - ~~Build Nav items components for navbar~~
 - ~~Use NavItem to populate the Header menu~~
 - ~~Do periodic test to see that everything works before proceeding. ~~
-- Do Theme Provider.
-- Do Card Create Page
+- ~~DDo Theme Provider.~~
+- Do the User Login/Logout/signup  -> *Finish refactor (see refactor notes below)*
+- Do Add Card Page
 - Edit what I already did to adapt it to changes from the original idea.
 
 
@@ -33,3 +34,11 @@ The idea is a hypothetical platform to support active content creators and get r
 - Handle the User permissions.
 - Consider taking Tzach's Project and just modifying that to suit your needs. although I don't like the way he names stuff.  Alternatively just take what he made and connect the endpoints where needed.
 
+
+## Low priority Tasks:
+- Customize color theme via theme provider for both light and dark,  use MUI colors.
+
+## Todo Refactor: 
+Had to make renaming changes for readibility and self-documentation that may help to make sense of some of the code. still need finish refactoring everything in the users folder before I continue. 
+- renamed hook useUser  to useUserProvider for more readibility.
+- renamed hook useUsers to useUserProfile
