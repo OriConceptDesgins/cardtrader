@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Project CardTrader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Concept Overview
+Project CardTrader Simulates a content investment application. Users are able to invest in cards , buying and selling them.  Cards increase in value as they get more likes but their value drops significantly if they don't get updated/maintained for over a week. A User can buy shares in a card or sell shares.
+The idea is a hypothetical platform to support active content creators and get rewarded with fake money for supporting them by creating a psuedo financial game around it.
 
-## Available Scripts
+## Goals:
+- The cards API I've been provided for this project has several different required fields that are not interesting towards my application  ,  I can either send them with placeholder data or use them in a way that they weren't intended to be used:  
+   1. phone     11
+   2. email
+   3. address 
+    - country	string		
+    - city	string			
+    - street	string			
+    - houseNumber	number
+- Create a card display page with sorting options (name,most liked ascending/descending) 
+- Each user will also have a ledger card they don't see that contains information about what shares they own in all cards ,  I will story it in the string of the street part of address object of said card.
+- The front end will only present part of the information to the user, I will use a unique identifier in the fields to find the relevant cards on the front end and interpret and present them approrpiately. 
 
-In the project directory, you can run:
+## Current to do list:
+- ~~Finish building the layout elements *Kind of done for now*~~
+- ~~Build Nav items components for navbar~~
+- ~~Use NavItem to populate the Header menu~~
+- ~~Do periodic test to see that everything works before proceeding. ~~
+- Do Theme Provider.
+- Do Card Create Page
+- Edit what I already did to adapt it to changes from the original idea.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Other Tasks for Project:
+- Do a business info page
+- Do entry page that has at least 3 cards , you can create your own via postman if you need.   Each card must have full CRUD functionality according to user permission.
+- Handle the User permissions.
+- Consider taking Tzach's Project and just modifying that to suit your needs. although I don't like the way he names stuff.  Alternatively just take what he made and connect the endpoints where needed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
