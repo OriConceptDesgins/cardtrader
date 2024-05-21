@@ -5,8 +5,9 @@ import ROUTES from '../../../../routes/routesModel';
 import { useUserProvider } from "../providers/UserProvider";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import useUserProfile from '../../../../users/hooks/useUserProfile';
-export default function NavbarUserProfile() {
 
+
+export default function NavbarUserProfile() {
   const { user } = useUserProvider();
   const {handleLogout} = useUserProfile();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -44,23 +45,25 @@ export default function NavbarUserProfile() {
         {(user == null) ? 
         (
           <>
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={handleClose} aria-label='Signup menu item'>
               <NavItem to={ROUTES.SIGNUP} label={"Sign Up"} />
             </MenuItem>
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={handleClose} aria-label='Login menu item'>
               <NavItem to={ROUTES.LOGIN} label={"Log In"} />
             </MenuItem>
           </>
           
         ):(
           <>
-          <MenuItem onClick={handleClose}>
-            <NavItem to={ROUTES.USER_PROFILE} label={"My Profile"} />
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <NavItem to={ROUTES.EDIT_PROFILE} label={"Edit Profile"} />
-          </MenuItem>
-          <MenuItem onClick={handleUserLogout}>Logout</MenuItem>       
+            <MenuItem onClick={handleClose} aria-label='View User Profile menu item'>
+              <NavItem to={ROUTES.USER_PROFILE} label={"My Profile"} />
+            </MenuItem>
+            <MenuItem onClick={handleClose} aria-label='Edit User Profile menu item'>
+              <NavItem to={ROUTES.EDIT_PROFILE} label={"Edit Profile"} />
+            </MenuItem>
+            <MenuItem onClick={handleUserLogout} aria-label='User Logout'>
+              Logout
+            </MenuItem>       
           </>
         )}
       </Menu>

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import normalizeUser from "../helpers/normalization/normalizeUser";
 
+
 export default function useUserProfile(){
   const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState(null);
