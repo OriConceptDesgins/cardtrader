@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useUser } from "../providers/UserProvider";
+import { useUserProvider } from "../providers/UserProvider";
 import { login, signup } from "../services/usersApiService";
 import {
   getUser,
@@ -15,13 +15,13 @@ export default function useUserProfile(){
   const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { setUser, setToken } = useUser();
+  const { setUser, setToken } = useUserProvider();
 
   const handleLogin = useCallback(
-    async (userLogin) => {
+    async (userLoginData) => {
       setIsLoading(true);
       try {
-        const token = await login(userLogin);
+        const token = await login(userLoginData);
         setTokenInLocalStorage(token);
         setToken(token);
         setUser(getUser());
@@ -40,14 +40,14 @@ export default function useUserProfile(){
   }, [setUser]);
 
   const handleSignup = useCallback(
-    async (userFromClient) => {
+    async (userDataFromClient) => {
       setIsLoading(true);
       try {
-        const normalizedUser = normalizeUser(userFromClient);
-        await signup(normalizedUser);
+        const normalizedUserData = normalizeUser(userDataFromClient);
+        await signup(normalizedUserData);
         await handleLogin({
-          email: userFromClient.email,
-          password: userFromClient.password,
+          email: userDataFromClient.email,
+          password: userDataFromClient.password,
         });
       } catch (error) {
         setError(error.message);

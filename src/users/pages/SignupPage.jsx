@@ -7,7 +7,7 @@ import SignupForm from "../components/SignupForm";
 import { useUserProvider } from "../providers/UserProvider";
 import { Navigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
-import useUserProfile from "../hooks/useUsers";
+import useUserProfile from "../hooks/useUserProfile";
 
 export default function SignupPage() {
   const { handleSignup } = useUserProfile();

@@ -7,19 +7,19 @@ import PageHeader from "../../components/PageHeader";
 import Form from "../../forms/components/Form";
 import ROUTES from "../../routes/routesModel";
 import Input from "../../forms/components/Input";
-import { useUser } from "../providers/UserProvider";
+import { useUserProvider } from "../providers/UserProvider";
 import { Navigate, Link } from "react-router-dom";
 import { Button, Grid } from "@mui/material";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import useUsers from "../hooks/useUsers";
+import useUserProfile from "../hooks/useUserProfile";
 
 export default function LoginPage() {
-  const { handleLogin } = useUsers();
+  const { handleLogin } = useUserProfile();
 
   const { data, errors, handleChange, handleReset, validateForm, onSubmit } =
     useForm(initialLoginForm, loginSchema, handleLogin);
 
-  const { user } = useUser();
+  const { user } = useUserProvider();
 
   if (user) return <Navigate to={ROUTES.ROOT} replace />;
 

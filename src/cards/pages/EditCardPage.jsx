@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function EditCard() {
+export default function EditCardPage() {
   return (
     <div>EditCard</div>
   )
