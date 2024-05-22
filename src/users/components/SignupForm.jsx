@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "../../forms/components/Form";
 import ROUTES from "../../routes/routesModel";
-import Input from "../../forms/components/Input";
+import FormTextField from "../../forms/components/FormTextField";
 import { Grid, FormControlLabel, Checkbox } from "@mui/material";
 
 export default function SignupForm({
@@ -23,7 +23,7 @@ export default function SignupForm({
       styles={{ maxWidth: "800px" }}
       to={ROUTES.ROOT}
     >
-      <Input
+      <FormTextField
         name="first"
         label="first name"
         error={errors.first}
@@ -31,7 +31,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="middle"
         label="middle name"
         error={errors.middle}
@@ -40,7 +40,7 @@ export default function SignupForm({
         sm={6}
         required={false}
       />
-      <Input
+      <FormTextField
         name="last"
         label="last name"
         error={errors.last}
@@ -48,7 +48,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="phone"
         label="phone"
         type="phone"
@@ -57,7 +57,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="email"
         label="email"
         type="email"
@@ -66,7 +66,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="password"
         label="password"
         type="password"
@@ -75,7 +75,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="url"
         label="image url"
         error={errors.url}
@@ -84,7 +84,7 @@ export default function SignupForm({
         sm={6}
         required={false}
       />
-      <Input
+      <FormTextField
         name="alt"
         label="image alt"
         error={errors.alt}
@@ -93,7 +93,7 @@ export default function SignupForm({
         sm={6}
         required={false}
       />
-      <Input
+      <FormTextField
         name="state"
         label="state"
         error={errors.state}
@@ -102,7 +102,7 @@ export default function SignupForm({
         sm={6}
         required={false}
       />
-      <Input
+      <FormTextField
         label="country"
         name="country"
         error={errors.country}
@@ -110,7 +110,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="city"
         label="city"
         error={errors.city}
@@ -118,7 +118,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="street"
         label="street"
         error={errors.street}
@@ -126,7 +126,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="houseNumber"
         label="house Number"
         type="number"
@@ -135,7 +135,7 @@ export default function SignupForm({
         data={data}
         sm={6}
       />
-      <Input
+      <FormTextField
         name="zip"
         label="zip"
         error={errors.zip}

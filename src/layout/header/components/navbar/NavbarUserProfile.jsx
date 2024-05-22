@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import {useMemo, useState} from 'react';
 import {IconButton,Menu,MenuItem } from '@mui/material/';
 import NavItem from '../../../../routes/navComponents/NavItem';
 import ROUTES from '../../../../routes/routesModel';
-import { useUserProvider } from "../providers/UserProvider";
+import { useUserProvider } from "../../../../users/providers/UserProvider";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import useUserProfile from '../../../../users/hooks/useUserProfile';
 
@@ -11,8 +11,12 @@ export default function NavbarUserProfile() {
   const { user } = useUserProvider();
   const {handleLogout} = useUserProfile();
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
   
+  
+  const isLoggedIn = useMemo(()=> { return user!=null; },[user]);
+  const open = useMemo( () => { return Boolean(anchorEl)},[anchorEl]);
+
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -42,30 +46,29 @@ export default function NavbarUserProfile() {
         onClose={handleClose}
         MenuListProps={{'aria-labelledby': 'Profile Menu'}}
       >
-        {(user == null) ? 
-        (
-          <>
-            <MenuItem onClick={handleClose} aria-label='Signup menu item'>
-              <NavItem to={ROUTES.SIGNUP} label={"Sign Up"} />
-            </MenuItem>
-            <MenuItem onClick={handleClose} aria-label='Login menu item'>
-              <NavItem to={ROUTES.LOGIN} label={"Log In"} />
-            </MenuItem>
-          </>
-          
-        ):(
-          <>
-            <MenuItem onClick={handleClose} aria-label='View User Profile menu item'>
-              <NavItem to={ROUTES.USER_PROFILE} label={"My Profile"} />
-            </MenuItem>
-            <MenuItem onClick={handleClose} aria-label='Edit User Profile menu item'>
-              <NavItem to={ROUTES.EDIT_PROFILE} label={"Edit Profile"} />
-            </MenuItem>
-            <MenuItem onClick={handleUserLogout} aria-label='User Logout'>
-              Logout
-            </MenuItem>       
-          </>
-        )}
+        {(!isLoggedIn) && 
+          <MenuItem onClick={handleClose} aria-label='Signup menu item'>
+            <NavItem to={ROUTES.SIGNUP} label={"Sign up"} />
+          </MenuItem>
+        }
+
+        {(!isLoggedIn) && 
+          <MenuItem onClick={handleClose} aria-label='Login menu item'>
+            <NavItem to={ROUTES.LOGIN} label={"Log in"} />
+          </MenuItem>
+        }
+      
+        {(isLoggedIn) && 
+          <MenuItem onClick={handleClose} aria-label='View User Profile menu item'>
+            <NavItem to={ROUTES.USER_PROFILE} label={"View my profile"} />
+          </MenuItem>
+        }
+
+        {(isLoggedIn) && 
+          <MenuItem onClick={handleUserLogout} aria-label='User Logout'>
+            Logout
+          </MenuItem>     
+        }
       </Menu>
     </div>
   );

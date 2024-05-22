@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import PageHeader from "../../components/PageHeader";
 import Form from "../../forms/components/Form";
 import ROUTES from "../../routes/routesModel";
-import Input from "../../forms/components/Input";
+import FormTextField from "../../forms/components/FormTextField";
 import { useUserProvider } from "../providers/UserProvider";
 import { Navigate, Link } from "react-router-dom";
 import { Button, Grid } from "@mui/material";
@@ -45,7 +45,7 @@ export default function LoginPage() {
           onReset={handleReset}
           validateForm={validateForm}
         >
-          <Input
+          <FormTextField
             label="email"
             name="email"
             type="email"
@@ -53,7 +53,7 @@ export default function LoginPage() {
             onChange={handleChange}
             data={data}
           />
-          <Input
+          <FormTextField
             label="password"
             name="password"
             type="password"

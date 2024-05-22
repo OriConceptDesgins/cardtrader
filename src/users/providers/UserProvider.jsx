@@ -30,6 +30,6 @@ export default function UserProvider({ children }) {
 
 export const useUserProvider = () => {
   const context = useContext(UserContext);
-  if (!context) throw new Error("useUser must be used within a Provider");
+  if (!context) throw new Error("useUserProvider must be used within a Provider");
   return context;
 };
