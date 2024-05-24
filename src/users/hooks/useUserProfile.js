@@ -1,10 +1,11 @@
 import { useCallback, useState } from "react";
 import { useUserProvider } from "../providers/UserProvider";
-import { login, signup } from "../services/usersApiService";
+import { login, signup, getUserData } from "../services/usersApiService";
 import {
   getUser,
   removeToken,
   setTokenInLocalStorage,
+  setInfoInLocalStorage,
 } from "../services/localStorageService";
 
 import { useNavigate } from "react-router-dom";
@@ -15,8 +16,9 @@ import normalizeUser from "../helpers/normalization/normalizeUser";
 export default function useUserProfile(){
   const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState(null);
+  const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
-  const { setUser, setToken } = useUserProvider();
+  const { setUser, setToken, user } = useUserProvider();
 
   const handleLogin = useCallback(
     async (userLoginData) => {
@@ -32,8 +34,7 @@ export default function useUserProfile(){
       }
       setIsLoading(false);
     },
-    [setToken, setUser, navigate]
-  );
+    [setToken, setUser, navigate]);
 
   const handleLogout = useCallback(() => {
     removeToken();
@@ -55,9 +56,22 @@ export default function useUserProfile(){
       }
       setIsLoading(false);
     },
-    [handleLogin]
-  );
+    [handleLogin]);
 
-  return { isLoading, error, handleLogin, handleLogout, handleSignup };
+  const handleGetUserInfo = useCallback(
+    async () => {
+      setIsLoading(true);
+      try {
+        const userInfo = await getUserData(user._id);
+        setInfoInLocalStorage(userInfo);
+        setUserInfo(userInfo);
+      } catch (error) {
+        setError(error.message);
+      }
+      setIsLoading(false);
+    },
+    [user]);
+
+  return {userInfo, isLoading, error, handleLogin, handleLogout, handleSignup , handleGetUserInfo};
 }
 

@@ -15,14 +15,14 @@ export default function Router() {
   return (
     <Routes>
       <Route path={ROUTES.ROOT} element={<CardsPage />} />
-      <Route path={ROUTES.CARDS} component={<CardsPage />} />
-      <Route path={ROUTES.ADD_CARD} component={<AddCardPage />} />
-      <Route path={ROUTES.EDIT_CARD} component={<EditCardPage />} />
-      <Route path={ROUTES.ABOUT} component={<AboutPage />} />
-      <Route path={ROUTES.SIGNUP} component={<SignupPage />} />
-      <Route path={ROUTES.LOGIN} component={<LoginPage />} />
-      <Route path={ROUTES.USER_PROFILE} component={<ViewProfilePage />} />
-      <Route path={ROUTES.EDIT_PROFILE} component={<EditProfilePage />} />
+      <Route path={ROUTES.CARDS} element={<CardsPage />} />
+      <Route path={ROUTES.ADD_CARD} element={<AddCardPage />} />
+      <Route path={ROUTES.EDIT_CARD} element={<EditCardPage />} />
+      <Route path={ROUTES.ABOUT} element={<AboutPage />} />
+      <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
+      <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+      <Route path={ROUTES.USER_PROFILE} element={<ViewProfilePage />} />
+      <Route path={ROUTES.EDIT_PROFILE} element={<EditProfilePage />} />
     </Routes>
   )
 }

@@ -7,7 +7,6 @@ export default function NavbarPageLinks() {
     <>
       <NavItem to={ROUTES.CARDS} label={"Cards"}/>
       <NavItem to={ROUTES.ABOUT} label={"About"}/>
-      <NavItem to={ROUTES.GETAPIKEY} label={"Get Finnhub API key"}/>
     </>
   )
 }
