@@ -18,8 +18,11 @@ export default function useUserProfile(){
   const [error, setError] = useState(null);
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
-  const { setUser, setToken, user } = useUserProvider();
+  const { setUser, setToken, user} = useUserProvider();
 
+
+
+  
   const handleLogin = useCallback(
     async (userLoginData) => {
       setIsLoading(true);

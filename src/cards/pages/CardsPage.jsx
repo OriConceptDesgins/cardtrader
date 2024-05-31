@@ -1,10 +1,11 @@
 import React from 'react'
-import CardsDisplay from '../components/CardsDisplay'
+import CardsDisplayTest from '../components/CardsDisplayTest'
+import { Container } from '@mui/material'
 
 export default function CardsPage() {
   return (
-    <div>
-      cards
-    </div>
+    <Container>
+      <CardsDisplayTest/>
+    </Container>
   )
 }
