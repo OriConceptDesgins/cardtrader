@@ -46,15 +46,10 @@ export default function NavbarUserProfile() {
         onClose={handleClose}
         MenuListProps={{'aria-labelledby': 'Profile Menu'}}
       >
-        {(!isLoggedIn) && 
-          <MenuItem onClick={handleClose} aria-label='Signup menu item'>
-            <NavItem to={ROUTES.SIGNUP} label={"Sign up"} />
-          </MenuItem>
-        }
 
         {(!isLoggedIn) && 
-          <MenuItem onClick={handleClose} aria-label='Login menu item'>
-            <NavItem to={ROUTES.LOGIN} label={"Log in"} />
+          <MenuItem onClick={handleClose} aria-label='Sign in menu item'>
+            <NavItem to={ROUTES.LOGIN} label={"Sign in"} />
           </MenuItem>
         }
       

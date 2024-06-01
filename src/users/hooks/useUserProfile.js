@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { useUserProvider } from "../providers/UserProvider";
-import { login, signup, getUserData } from "../services/usersApiService";
+import { login, signup, getUserData, updateUser } from "../services/usersApiService";
 import {
   getUser,
   removeToken,
@@ -19,7 +19,6 @@ export default function useUserProfile(){
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
   const { setUser, setToken, user} = useUserProvider();
-
 
 
   
@@ -75,6 +74,24 @@ export default function useUserProfile(){
     },
     [user]);
 
-  return {userInfo, isLoading, error, handleLogin, handleLogout, handleSignup , handleGetUserInfo};
+
+  const handleEditSubmit =  useCallback(
+    async (userDataFromClient) => {
+      setIsLoading(true);
+      try {
+        const normalizedUserData = normalizeUser(userDataFromClient);
+        await updateUser(normalizedUserData);
+        await handleLogin({
+          email: userDataFromClient.email,
+          password: userDataFromClient.password,
+        });
+      } catch (error) {
+        setError(error.message);
+      }
+      setIsLoading(false);
+    },
+    [handleLogin]);
+
+  return {userInfo, isLoading, error, handleLogin, handleLogout, handleSignup , handleGetUserInfo, handleEditSubmit};
 }
 

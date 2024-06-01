@@ -25,9 +25,10 @@ export default function LoginPage() {
 
   return (
     <Container>
-      <PageHeader
-        title="Welcome to Login page"
-        subtitle="here you can log in"
+      <PageHeader 
+        sx={{p: 5}}
+        title="Welcome to Sign in page"
+        subtitle="We invite you to log in or register to experience the full functionality of this site"
       />
       <Container
         sx={{
@@ -61,13 +62,14 @@ export default function LoginPage() {
             onChange={handleChange}
             data={data}
           />
-          <Grid item xs={12}>
+          <Grid item xs={12} mt={5}>
+            Don't have an account yet? 
             <Button
               variant="outlined"
               component={Link}
               to={ROUTES.SIGNUP}
               startIcon={<AccountBoxIcon />}
-              sx={{ width: "100%" }}
+              sx={{ width: "100%" , mt:1}}
             >
               Sign Up
             </Button>

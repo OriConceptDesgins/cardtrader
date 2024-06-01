@@ -22,6 +22,17 @@ export const signup = async (normalizedUser) => {
   }
 };
 
+export const updateUser = async (normalizedUser) => {
+  try {
+    const { data } = await axios.post(apiUrl, normalizedUser);
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+
+
 export const getUserData = async (id) => {
   try {
     const { data } = await axios.get(`${apiUrl}/${id}`);

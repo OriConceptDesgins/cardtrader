@@ -38,7 +38,7 @@ export default function SignupPage() {
         onSubmit={onSubmit}
         onReset={handleReset}
         validateForm={validateForm}
-        title={"register form"}
+        title={"Register Profile"}
         errors={errors}
         data={data}
         onInputChange={handleChange}

@@ -1,9 +1,9 @@
 import React from "react";
-import { Divider, Typography } from "@mui/material";
+import { Divider, Typography, Box } from "@mui/material";
 
-export default function PageHeader({ title, subtitle }) {
+export default function PageHeader({ title, subtitle, sx }) {
   return (
-    <>
+    <Box sx={{...sx}}>
       <Typography variant="h2" component="h1">
         {title}
       </Typography>
@@ -11,6 +11,6 @@ export default function PageHeader({ title, subtitle }) {
         {subtitle}
       </Typography>
       <Divider sx={{ my: 2 }} />
-    </>
+    </Box>
   );
 }
