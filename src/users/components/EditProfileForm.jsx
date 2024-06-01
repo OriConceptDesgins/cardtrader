@@ -3,7 +3,6 @@ import Form from "../../forms/components/Form";
 import ROUTES from "../../routes/routesModel";
 import FormTextField from "../../forms/components/FormTextField";
 import { Grid, FormControlLabel, Checkbox } from "@mui/material";
-
 export default function EditProfileForm({
   onSubmit,
   onReset,
@@ -14,6 +13,7 @@ export default function EditProfileForm({
   onInputChange,
   handleChangeCheckBox,
 }) {
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -144,14 +144,14 @@ export default function EditProfileForm({
         sm={6}
         required={false}
       />
-      {/* <Grid item>
+      <Grid item>
         <FormControlLabel
           onChange={handleChangeCheckBox}
           name="isBusiness"
           control={<Checkbox value={data.isBusiness} color="primary" />}
           label="Signup as business"
         />
-      </Grid> */}
+      </Grid>
     </Form>
   );
 }

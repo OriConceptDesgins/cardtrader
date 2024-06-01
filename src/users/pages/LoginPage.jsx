@@ -26,16 +26,17 @@ export default function LoginPage() {
   return (
     <Container>
       <PageHeader 
-        sx={{p: 5}}
+        sx={{pt: 5}}
         title="Welcome to Sign in page"
         subtitle="We invite you to log in or register to experience the full functionality of this site"
       />
       <Container
         sx={{
-          paddingTop: 8,
+          paddingTop: 5,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          flexDirection: "column"
         }}
       >
         <Form
@@ -62,7 +63,9 @@ export default function LoginPage() {
             onChange={handleChange}
             data={data}
           />
-          <Grid item xs={12} mt={5}>
+          
+        </Form>
+        <Grid item xs={12} mt={5}>
             Don't have an account yet? 
             <Button
               variant="outlined"
@@ -74,8 +77,8 @@ export default function LoginPage() {
               Sign Up
             </Button>
           </Grid>
-        </Form>
       </Container>
+      
     </Container>
   );
 }
