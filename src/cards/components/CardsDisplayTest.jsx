@@ -12,7 +12,7 @@ export default function CardsDisplay() {
 
   const getAllCards = async () =>{
     try {
-      const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards");
+      const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/my-cards");
       setCards(response.data);
       setSnack("success", "successfully read cards");
       console.log("successfully read cards");

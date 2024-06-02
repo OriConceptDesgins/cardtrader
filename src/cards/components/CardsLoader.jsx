@@ -2,9 +2,9 @@ import React from "react";
 import Spinner from "../../components/Spinner";
 import Error from "../../components/Error";
 import { Typography } from "@mui/material";
-import CardsDisplay from "./Cards";
+import CardsDisplay from "./CardsDisplay";
 
-export default function CardsFeedback({
+export default function CardsLoader({
   isLoading,
   cards,
   error,

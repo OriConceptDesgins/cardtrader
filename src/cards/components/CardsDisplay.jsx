@@ -1,18 +1,18 @@
 import React from "react";
-import CardComponent from "./card/CardComponent";
-import { Container, Typography } from "@mui/material";
+import CardComp from "./card/CardComp";
+import { Box} from "@mui/material";
 
-export default function CardsDsiplay({ cards, handleCardDelete, handleCardLike }) {
+export default function CardsDisplay({ cards, handleCardDelete, handleCardLike }) {
   return (
-    <Container sx={{ display: "flex", flexWrap: "wrap" }}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width:"80vw"}}>
       {cards.map((card) => (
-        <CardComponent
+        <CardComp
           key={card._id}
-          card={card}
+          cardData={card}
           handleCardDelete={handleCardDelete}
           handleCardLike={handleCardLike}
         />
       ))}
-    </Container>
+    </Box>
   );
 }

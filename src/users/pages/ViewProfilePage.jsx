@@ -13,6 +13,8 @@ export default function ViewProfilePage() {
 
   useEffect(()=>{
     handleGetUserInfo();
+    console.log(token);
+    console.log(user);
   },[handleGetUserInfo, user, token]);
   
 

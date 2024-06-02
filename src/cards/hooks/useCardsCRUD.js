@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
 import {
+  getTradeOfferCards,
   createCard,
+  getMyCards,
   editCard,
   getCard,
   getCards,
@@ -26,6 +28,33 @@ export default function useCardsCRUD() {
       setError(null);
       setIsLoading(true);
       const data = await getCards();
+      setCards(data);
+      setSnack("success", "All the cards are here");
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsLoading(false);
+  }, [setSnack]);
+
+  const getMyOwnCards = useCallback(async () => {
+    try {
+      setError(null);
+      setIsLoading(true);
+      const data = await getMyCards();
+      setCards(data);
+      setSnack("success", "All the cards are here");
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsLoading(false);
+  }, [setSnack]);
+
+  const getTradeCards = useCallback(async () => {
+    try {
+      setError(null);
+      setIsLoading(true);
+      const data = await getTradeOfferCards();
+      console.log("getTradeCards:" + data);
       setCards(data);
       setSnack("success", "All the cards are here");
     } catch (err) {
@@ -100,7 +129,9 @@ export default function useCardsCRUD() {
     error,
     isLoading,
     getAllCards,
+    getMyOwnCards,
     getCardById,
+    getTradeCards,
     handleCardDelete,
     handleCardLike,
     handleCreateCard,

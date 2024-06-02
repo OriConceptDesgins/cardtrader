@@ -10,6 +10,7 @@ import LoginPage from "../users/pages/LoginPage";
 import AddCardPage from "../cards/pages/AddCardPage";
 import ViewProfilePage from "../users/pages/ViewProfilePage";
 import EditProfilePage from "../users/pages/EditProfilePage";
+import CardInfoPage from "../cards/pages/CardInfoPage";
 
 export default function Router() {
   return (
@@ -17,7 +18,8 @@ export default function Router() {
       <Route path={ROUTES.ROOT} element={<CardsPage />} />
       <Route path={ROUTES.CARDS} element={<CardsPage />} />
       <Route path={ROUTES.ADD_CARD} element={<AddCardPage />} />
-      <Route path={ROUTES.EDIT_CARD} element={<EditCardPage />} />
+      <Route path={ROUTES.EDIT_CARD + "/:id"} element={<EditCardPage />} />
+      <Route path={ROUTES.CARD_INFO + "/:id"} element={<CardInfoPage/>} />
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />

@@ -1,5 +1,6 @@
 import axios from "axios";
 const apiUrl = "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards";
+const presetTradeToke = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjViMzczODAwYjRkMDA2YjQxNmVkYzMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzE3MjUzOTQ0fQ.6AglJ--H_vZYIrpviangetCO1nuQjPIXNbxt5GHapjI"
 
 export const getCards = async () => {
   try {
@@ -30,6 +31,22 @@ export const getMyCards = async () => {
     return Promise.reject(error.message);
   }
 };
+
+export const getTradeOfferCards = async () => {
+  try {
+    const config = {
+      headers: {
+        'x-auth-token': presetTradeToke 
+      }
+    };
+    const response = await axios.get(`${apiUrl}/my-cards`, config);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    return Promise.reject(error.message);
+  }
+};
+
 
 export const deleteCard = async (cardId) => {
   try {
