@@ -26,7 +26,7 @@ function CardComp({
   console.log(cardData);
   return (
     <Card className="CardMain" sx={cardStyle}>
-      <CardHead title={cardData.title} subtitle={cardData.subtitle}/>
+      <CardHead title={cardData.title} subtitle={cardData.subtitle} cardId={cardData._id}/>
       <CardBody 
         imageURL= {cardData.image.url} 
         imageAlt= {cardData.image.alt}

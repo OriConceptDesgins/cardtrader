@@ -7,8 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import InfoIcon from '@mui/icons-material/Info';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import StarIcon from '@mui/icons-material/Star';
+
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../routes/routesModel";
 

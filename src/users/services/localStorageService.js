@@ -27,3 +27,25 @@ export const getUser = () => {
 };
 
 export const getInfo = () => localStorage.getItem(INFO);
+
+export const getFavorites = () => {
+  const favoritesJSON = localStorage.getItem('favorites');
+  return favoritesJSON ? JSON.parse(favoritesJSON) : [];
+};
+export const addToFavorites = (cardId) => {
+  const favorites = getFavorites();
+  if (!favorites.includes(cardId)) {
+    favorites.push(cardId);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+};
+
+export const isFavorite = (cardId) => {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  return favorites.includes(cardId);
+}
+
+export const removeFromFavorites = (cardId) => {
+  const favorites = getFavorites().filter(id => id !== cardId);
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+};

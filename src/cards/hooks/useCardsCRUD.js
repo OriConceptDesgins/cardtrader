@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import {
   getTradeOfferCards,
   createCard,
@@ -20,6 +20,12 @@ export default function useCardsCRUD() {
   const [error, setError] = useState();
   const navigate = useNavigate();
   const setSnack = useSnack();
+  const [favoriteCards, setFavoriteCards] = useState([]);
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setFavoriteCards(favorites);
+  }, []);
 
   useAxios();
 
@@ -123,6 +129,29 @@ export default function useCardsCRUD() {
     console.log("you liked card no" + id);
   }, []);
 
+  const getFavoriteCards = useCallback(async () => {
+    try {
+      setError(null);
+      setIsLoading(true);
+      
+      const favoriteCardsData = [];
+      favoriteCards.forEach(async (id) => {
+        try {
+          const cardData = await getCardById(id);
+          favoriteCardsData.push(cardData);
+        } catch (error) {
+          console.error(`Error fetching card with ID ${id}:`, error);
+        }
+      });
+      
+      setCards(favoriteCardsData);
+      setIsLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setIsLoading(false);
+    }
+  }, [favoriteCards, getCardById]);
+
   return {
     cards,
     card,
@@ -133,6 +162,7 @@ export default function useCardsCRUD() {
     getCardById,
     getTradeCards,
     handleCardDelete,
+    getFavoriteCards,
     handleCardLike,
     handleCreateCard,
     handleUpdateCard,
